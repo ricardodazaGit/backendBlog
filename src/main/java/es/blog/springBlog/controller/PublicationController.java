@@ -28,8 +28,8 @@ public class PublicationController {
 	
 	@RequestMapping(value="/saveOrUpdate", method = RequestMethod.POST)
 	public RestResponse saveOrUpdate(@RequestBody String publicJson) throws JsonParseException, JsonMappingException, IOException {
-		
 		this.mapper = new ObjectMapper();
+		
 		Publication publication = this.mapper.readValue(publicJson, Publication.class);
 		
 		if(!this.validate(publication)) {
@@ -44,6 +44,18 @@ public class PublicationController {
 	@RequestMapping(value = "/getPublications", method = RequestMethod.GET)
 	public List<Publication> getPublications(){
 		return this.publicationService.findAll();
+	}
+	
+	@RequestMapping(value = "/deletePublication", method = RequestMethod.POST)
+	public void deletePublication(@RequestBody String publicJson) throws Exception {
+		this.mapper = new ObjectMapper();
+		
+		Publication publication = this.mapper.readValue(publicJson, Publication.class);
+		
+		if(publication.getId() == null) {
+			throw new Exception("id incorrecto");
+		}
+		this.publicationService.deletePublication(publication.getId());
 	}
 	
 	private boolean validate(Publication publication) {
