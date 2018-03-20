@@ -1,6 +1,7 @@
 package es.blog.springBlog.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,10 @@ public class PublicationController {
 		return new RestResponse(HttpStatus.OK.value(), "Operación Realizada");
 		
 		
+	}
+	@RequestMapping(value = "/getPublications", method = RequestMethod.GET)
+	public List<Publication> getPublications(){
+		return this.publicationService.findAll();
 	}
 	
 	private boolean validate(Publication publication) {
