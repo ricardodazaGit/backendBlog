@@ -8,6 +8,6 @@ public class IndexController {
 
 	@RequestMapping("/")
 	public String getIndexPage() {
-		return "index";
+		return "rp-app/index.html";
 	}
 }

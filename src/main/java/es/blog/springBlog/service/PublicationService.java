@@ -24,4 +24,10 @@ public interface PublicationService {
 	 * @param id
 	 */
 	void deletePublication(Long id);
+	
+	/*
+	 * busca publicacion por id
+	 * @param id
+	 */
+	Publication findOneById(Long id_public);
 }

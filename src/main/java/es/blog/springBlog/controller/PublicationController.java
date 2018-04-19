@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,16 +47,22 @@ public class PublicationController {
 		return this.publicationService.findAll();
 	}
 	
-	@RequestMapping(value = "/deletePublication", method = RequestMethod.POST)
-	public void deletePublication(@RequestBody String publicJson) throws Exception {
-		this.mapper = new ObjectMapper();
+	@RequestMapping(value = "getPublication/{id_public}", method = RequestMethod.GET)
+	public Publication getHeroeById(@PathVariable("id_public") Long id_public) {
+
+		return this.publicationService.findOneById(id_public);
+
+	}
+	
+	@RequestMapping(value = "/deletePublication/{id_public}", method = RequestMethod.DELETE)
+	public RestResponse deletePublication(@PathVariable("id_public") Long id_public) throws Exception {
 		
-		Publication publication = this.mapper.readValue(publicJson, Publication.class);
-		
-		if(publication.getId() == null) {
+		if(id_public == null) {
 			throw new Exception("id incorrecto");
 		}
-		this.publicationService.deletePublication(publication.getId());
+		this.publicationService.deletePublication(id_public);
+		
+		return new RestResponse(HttpStatus.OK.value(), "DELETE: Operación Realizada");
 	}
 	
 	private boolean validate(Publication publication) {
