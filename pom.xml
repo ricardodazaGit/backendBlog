@@ -5,8 +5,8 @@
 
 	<groupId>es.blog</groupId>
 	<artifactId>springBlog</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<version>0.0.2-SNAPSHOT</version>
+	<packaging>war</packaging>
 
 	<name>SpringBlog</name>
 	<description>Project for Spring Blog</description>
