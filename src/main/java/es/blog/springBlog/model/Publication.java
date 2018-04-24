@@ -21,6 +21,9 @@ public class Publication extends ParentEntity {
 	
 	@Column(name="description", nullable=false, length=1000)
 	private String descriptionPost;
+	
+	@Column(name="img_title", nullable=false, length=300)
+	private String imgTitle;
 
 	public String getTitlePost() {
 		return titlePost;
@@ -36,6 +39,14 @@ public class Publication extends ParentEntity {
 
 	public void setDescriptionPost(String descriptionPost) {
 		this.descriptionPost = descriptionPost;
+	}
+
+	public String getImgTitle() {
+		return imgTitle;
+	}
+
+	public void setImgTitle(String imgTitle) {
+		this.imgTitle = imgTitle;
 	}
 
 }
