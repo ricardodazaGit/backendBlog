@@ -57,20 +57,14 @@
      <!-- By default that is to put the resulting archive into the 'deployments' folder. -->
      <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
      <id>openshift</id>
-     <build>
-        <finalName>springBlog</finalName>
-        <plugins>
-          <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <outputDirectory>target</outputDirectory>
-                </configuration>
-            </plugin>
-        </plugins>
-      </build>
+     <build> -->
+ 		<plugins> 
+ 			<plugin> 
+ 				<groupId>org.springframework.boot</groupId> 
+ 				<artifactId>spring-boot-maven-plugin</artifactId> 
+ 			</plugin> 
+ 		</plugins> 
+ 	</build>
     </profile>
   </profiles>
 
