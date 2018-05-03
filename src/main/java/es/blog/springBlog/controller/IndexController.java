@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-	@RequestMapping("/rp-app")
+	@RequestMapping("/")
 	public String getIndexPage() {
-		return "rp-app/index.html";
+		//return "rp-app/index.html";
+		return "Hola";
 	}
 }
