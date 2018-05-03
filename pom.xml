@@ -57,7 +57,8 @@
      <!-- By default that is to put the resulting archive into the 'deployments' folder. -->
      <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
      <id>openshift</id>
-     <build> -->
+     <build>
+	     <finalName>springblog</finalName>
  		<plugins> 
  			<plugin> 
  				<groupId>org.springframework.boot</groupId> 
